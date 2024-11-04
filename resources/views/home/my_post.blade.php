@@ -8,7 +8,7 @@
     
     .post_deg
     {
-        padding: 30px;
+        margin-top: 120px;
         text-align: center;
         background-color: rgb(255, 255, 255);
     }
@@ -65,8 +65,13 @@
 
    </head>
    <body>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
+
       <!-- header section start -->
-      <div class="header_section">
+      {{-- <div class="header_section">
+      </div> --}}
+
          @include('home.header')
 
          @if (session()->has('message'))
@@ -110,30 +115,22 @@
 
                                     <h4 class="card-title title_deg">{{ $item->title }}</h4>
 
-                                    {{-- @if($data->post_status == 'active')
-
-                                    <p style="color: green; font-weight: bold; margin-bottom: 20px; margin-right: 190px;">Published</p>
-
-                                    @else
-
-                                    <p style="color: red; font-weight: bold; margin-bottom: 20px; margin-right: 190px;">Not Published</p> 
-
-                                    @endif --}}
 
 
-                                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+
+                                    <div style="display:inherit; justify-content:center; margin-bottom: 20px;">
                                         @if($item->post_status == 'active')
-                                            <p style="color: green; font-weight: bold; margin-left: 40px;">Published</p>
+                                            <p style="color: green; font-weight: bold; ">Published</p>
 
-                                            <p style="margin-right: 50px;">
+                                            <p>
                                                 {{ \Carbon\Carbon::parse($item->accepted_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                                             </p>
 
                                         @elseif($item->post_status == 'rejected')
 
-                                            <p style="color: red; font-weight: bold; margin-left: 20px;">Not Published</p>
+                                            <p style="color: red; font-weight: bold;">Not Published</p>
 
-                                            <p style="margin-right: 45px;">
+                                            <p>
                                                 {{ \Carbon\Carbon::parse($item->rejected_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                                             </p>
                                             </p>
@@ -162,7 +159,7 @@
 
                     </div>
 
-                </div>
+        
                 
         
          

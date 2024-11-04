@@ -76,20 +76,20 @@
 
    <div class="container-fluid">
 
-      <nav class="navbar navbar-expand-lg fixed-top" style="background: rgb(6, 168, 141)" >
+      <nav class="navbar navbar-expand-lg fixed-top" style="background: rgb(17, 92, 79)" >
          <div class="container-fluid">
 
            <a class="navbar-brand me-auto" href="{{ url('/homepage') }}" >
-            <img src="images/logo3.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="images/logo2.png" alt="Logo" width="80" height="24" class="d-inline-block align-text-top">
            </a>
 
            {{-- button offcanvas --}}
           
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"  aria-labelledby="offcanvasNavbarLabel" style="background: rgb(6, 168, 141)">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"  aria-labelledby="offcanvasNavbarLabel" style="background: rgb(17, 92, 79)">
                <div class="offcanvas-header">
 
                   <a class="navbar-brand" href="{{ url('/homepage') }}" >
-                     <img src="images/logo3.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                     <img src="images/logo2.png" alt="Logo" width="80" height="24" class="d-inline-block align-text-top">
                   </a>
 
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

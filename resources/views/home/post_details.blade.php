@@ -9,6 +9,7 @@
       .deg
       {
          background-color: white;
+         margin-top: 90px;
       }
 
       .cover-image img {
@@ -73,6 +74,15 @@
          margin-bottom: 100px;
       }
 
+      /* publish */
+      .status-info {
+         display: flex;
+         justify-content: flex-start;
+         gap: 10px;
+         margin-bottom: 50px;
+         align-items: center;
+      }
+
 
     </style>
       
@@ -80,12 +90,12 @@
    <body>
       
       <!-- header section start -->
-      <div class="header_section">
+      {{-- <div class="header_section">
+      </div> --}}
 
-         @include('home.header')
 
-      </div>
-      
+       @include('home.header')
+
       <!-- header section end -->
 
       {{-- <div style="text-align: center;" class="col-md-12">
@@ -104,7 +114,7 @@
 
       <div class="deg">
          <div class="container">
-             <div class="row">
+            <div class="row">
 
                <div style="text-align: center;" class="col-md-12">
                   {{-- <div class="service_img">
@@ -120,25 +130,24 @@
 
                   <p style="margin-bottom: 10px;">Post by <b>{{ $post->name }}</b> </p>
 
-                  <div style="display: flex; justify-content: space-between; margin-bottom: 100px;">
+                  <div class="status-info d-flex justify-content-start mb-4">
                      @if($post->post_status == 'active')
-                         <p style="color: green; font-weight: bold; margin-left: 900px;">Published</p>
+                         <p class="text-success fw-bold me-2">Published</p>
 
-                         <p style="margin-left: auto;">
+                         <p>
                            {{ \Carbon\Carbon::parse($post->accepted_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                          </p>
 
                      @elseif($post->post_status == 'rejected')
 
-                         <p style="color: red; font-weight: bold; margin-left: 870px;">Not Published</p>
+                         <p class="text-danger fw-bold me-2">Not Published</p>
 
-                         <p style="margin-left: auto;">
+                         <p>
                            {{ \Carbon\Carbon::parse($post->rejected_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                          </p>
                      @endif
                  </div>
-   
-                  {{-- <h4>{{ $post->description }}</h4> --}}
+
 
                   <div class="post-description">
                      {!! $post->description !!}
@@ -147,7 +156,7 @@
                   
                </div>
 
-             </div>
+            </div>
          </div>
      </div>
 

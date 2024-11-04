@@ -73,10 +73,15 @@
 
    </head>
    <body>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
       <!-- header section start -->
-      <div class="header_section">
-         @include('home.header')
-      </div>
+      {{-- <div class="header_section">
+      </div> --}}
+
+      @include('home.header')
+
       <!-- header section end -->
 
       <div class="services_section layout_padding">
@@ -110,11 +115,11 @@
     
                     <p>Post by <b>{{ $post->name }}</b> </p>
 
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div style="display:inherit; justify-content:center; margin-top: 20px;">
                      @if($post->post_status == 'active')
-                         <p style="color: green; font-weight: bold; margin-right: 20px;">Published</p>
+                         <p style="color: green; font-weight: bold;">Published</p>
 
-                         <p style="margin-right: 100px;">
+                         <p>
                            {{ \Carbon\Carbon::parse($post->accepted_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                          </p>
                      @endif

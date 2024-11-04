@@ -89,11 +89,11 @@
               <h4>{{ $post->title }}</h4>
               <p>Post by <b>{{ $post->name }}</b> </p>
 
-              <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+              <div style="display:inherit; justify-content:center; margin-top: 20px;">
                 @if($post->post_status == 'active')
-                    <p style="color: green; font-weight: bold; margin-right: 20px;">Published</p>
+                    <p style="color: green; font-weight: bold;">Published</p>
 
-                    <p style="margin-right: 100px;">
+                    <p>
                       {{ \Carbon\Carbon::parse($post->accepted_at)->setTimezone('Asia/Jakarta')->format('d M Y H:i') ?? 'N/A' }}
                     </p>
                 @endif

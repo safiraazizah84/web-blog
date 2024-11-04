@@ -295,7 +295,7 @@
     }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 425px) {
     .navbar-light .navbar-toggler {
         color: rgba(0, 0, 0, .5);
         border-color: transparent;

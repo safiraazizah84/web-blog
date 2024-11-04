@@ -50,17 +50,8 @@
       font-size: 1rem;
 
     }
-
-    
-
     
     </style>
-
-
-
-      
-
-    
 
 
    </head>
@@ -68,14 +59,16 @@
     {{-- tanda sudah memasukkan data --}}
       @include('sweetalert::alert')  
 
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
       
 
       <!-- header section start -->
       
-      <div class="header_section">
-         @include('home.header')
-        
+      {{-- <div class="header_section">
+      </div> --}}
 
+         @include('home.header')
 
          <div class="contact_section layout_padding post-page">
             <div class="container">
