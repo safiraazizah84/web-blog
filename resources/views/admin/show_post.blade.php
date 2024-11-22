@@ -242,7 +242,9 @@
                 @foreach ($posts as $index => $post)
 
                 <tr class="table-active">
-                    <td>{{ ($posts->currentPage()-1) * $posts->perPage() + $index + 1 }}</td>
+                    <td>
+                        {{ ($posts->currentPage()-1) * $posts->perPage() + $index + 1 }}
+                    </td>
                     <td>{{ $post->title }}</td>
                     {{-- <td>{{ $post->description }}</td> --}}
                     
@@ -258,7 +260,8 @@
                     </td>
 
                     <td>
-                        <a href="{{ url('delete_post',$post->id) }}" class="btn btn-danger" onclick="confirmation(event)">Delete</a>
+                        <a href="{{ url('delete_post',$post->id) }}" class="btn btn-danger" onclick="confirmation(event)">Delete
+                        </a>
                     </td>
 
                     <td>

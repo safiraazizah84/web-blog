@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('verifytokens', function (Blueprint $table) {
-            $table->id();
-            $table->string('token');
-            $table->string('email')->nullable();
-            $table->boolean('is_activated')->default(0);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('otp_code')->nullable();
+            $table->timestamp('otp_expiration')->nullable();
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('verifytokens');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['otp_code', 'otp_expiration']);
+        });
     }
 };

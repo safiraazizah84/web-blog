@@ -102,6 +102,14 @@
                 <div class="post_deg">
                     <div class="container">
                         <div class="row">
+                            @if($data->isEmpty())
+                            <div class="col-md-12 text-center" style="margin-top: 210px; margin-bottom: 250px;">
+                                <h3 style="margin-bottom: 50px;">No posts available</h3>
+                                <p style="margin-bottom: 10px;">You haven't uploaded any posts yet. Start by uploading a post to see it here!</p>
+                                <a href="{{ url('create_post') }}" class="btn btn-primary">Upload Your First Post</a>
+                            </div>
+
+                            @else
 
                             @foreach ($data as $item)
 
@@ -148,13 +156,13 @@
                                 </div>
                             </div>
 
-
                             @endforeach
 
                             <div class="pagination justify-content-center mt-4">
                                 {{ $data->onEachSide(1)->links('pagination::bootstrap-5') }}
                             </div>
 
+                            @endif
                         </div>
 
                     </div>

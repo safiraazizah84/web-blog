@@ -160,7 +160,7 @@
          </div>
      </div>
 
-     {{-- update lagi --}}
+    
      
       
       <!-- footer section start -->

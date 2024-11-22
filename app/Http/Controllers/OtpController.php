@@ -2,38 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use id;
 use Carbon\Carbon;
 use App\Models\Otp;
 use App\Models\User;
 use App\Mail\OtpMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class OtpController extends Controller
 {
-    // Kirim OTP ke email pengguna
+   
     public function sendOtp(Request $request)
     {
         $request->validate(['email' => 'required|email']);
 
-        // Hapus OTP lama untuk email ini
+        
         Otp::where('email', $request->email)->delete();
 
-        // Buat OTP baru
-        $otp = rand(100000, 999999); // 6-digit OTP
+        
+        $otp = rand(100000, 999999);
         $otpData = Otp::create([
             'email' => $request->email,
             'otp' => $otp,
-            'expires_at' => Carbon::now()->addMinutes(10), // OTP berlaku 10 menit
+            'expires_at' => Carbon::now()->addMinutes(10), 
         ]);
 
-        // Kirim OTP melalui email
-        Mail::to($request->email)->send(new OtpMail($otp)); // Buat mail view OtpMail
+        
+        Mail::to($request->email)->send(new OtpMail($otp)); 
 
         return redirect()->route('verify.otp.form')->with('message', 'OTP sent to your email.');
     }
 
-    // Verifikasi OTP
+    
     public function verifyOtp(Request $request)
     {
         $request->validate([

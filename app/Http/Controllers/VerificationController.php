@@ -19,14 +19,14 @@ class VerificationController extends Controller
 
         // Cek apakah hash yang diberikan sesuai
         if (!hash_equals(sha1($user->email), $hash)) {
-            return redirect('/')->withErrors(['msg' => 'Invalid verification link.']);
+            return redirect('/login')->withErrors(['msg' => 'Invalid verification link.']);
         }
 
         // Tandai email sebagai terverifikasi
         $user->email_verified_at = now();
         $user->save();
 
-        return redirect('/')->with('message', 'Email successfully verified!');
+        return redirect('/login')->with('message', 'Email successfully verified!');
     }
 
     public function resend(Request $request)

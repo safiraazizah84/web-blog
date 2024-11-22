@@ -58,7 +58,7 @@ Route::post('/email/verification-notification', [VerificationController::class, 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
  
-    return redirect('/homepage');
+    return redirect('/login');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 
@@ -66,6 +66,12 @@ Route::get('/email/verify', function () {
     return view('auth.verify-email');
 
 })->middleware('auth')->name('verification.notice');
+
+
+// otp
+Route::get('/otp/verify', [OtpController::class, 'showOtpForm'])->name('otp.verify');
+
+Route::post('/otp/verify', [OtpController::class, 'verifyOtp'])->name('otp.verify.post');
 
 
 
@@ -97,6 +103,7 @@ Route::post('/logout', [HomeController::class, 'logout'])->name('logout');
 
 //halaman about
 route::get('/about_us',[HomeController::class,'about_us'])->name('about_us');
+
 
 Route::get('/post_page',[AdminController::class,'post_page'])->middleware('auth');
 
